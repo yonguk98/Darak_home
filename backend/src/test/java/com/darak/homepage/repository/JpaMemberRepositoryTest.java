@@ -23,7 +23,7 @@ public class JpaMemberRepositoryTest {
         User user = new User();
 //        long a = 1;
 //        user.setIdentity(a);
-        user.setId("1");
+        user.setId("4");
         user.setPassword("1234");
         user.setName("1");
 
