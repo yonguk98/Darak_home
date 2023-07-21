@@ -18,7 +18,7 @@ public class MemberService {
     public MemberService(MemberRepository memberRepository){this.memberRepository = memberRepository;}
 
     public Long join(User user){
-//        validateDuplicateMember(user);
+        validateDuplicateMember(user);
         memberRepository.save(user);
         return user.getIdentity();
     }
@@ -35,7 +35,20 @@ public class MemberService {
     public Optional<User> findOne(Long identity){return memberRepository.findByIdentity(identity);}
 
     //로그인
-    public void login(String id, String password){
-
+//    public Optional<User> login(String id, String password){
+//        //아이디 비밀번호로 일치하는 유저 있는지 확인
+//        Optional<User> resultById = memberRepository.findById(id);
+//        Optional<User> resultByPassword = memberRepository.findByPassword(password);
+//
+//        if (resultByPassword == resultById){
+//            return resultById;
+//        }
+//        return none;
+//    }
+    public boolean userCheckById(String id){
+        return memberRepository.findById(id).isPresent();
+    }
+    public boolean userCheckByPassword(String password){
+        return memberRepository.findByPassword(password).isPresent();
     }
 }

@@ -42,13 +42,14 @@ public class MemberController {
         model.addAttribute("users", users);
         return "users/userList";
     }
-
-    @GetMapping("/users/login")
-    public String login(LoginForm loginForm){
-        User user = new User();
-        user.setId(loginForm.getId());
-        user.setPassword(loginForm.getPassword());
-        return "none";
+    @ResponseBody
+    @PostMapping("/users/login")
+    public boolean login(@RequestBody Map<String,String> param){
+        if(memberService.userCheckById(param.get("id"))
+                && memberService.userCheckByPassword(param.get("pwd"))){
+            return true;
+        }
+        return false;
     }
     @ResponseBody
     @PostMapping ("/api")
