@@ -29,3 +29,4 @@ build
 /nbdist/
 /.nb-gradle/
 ~~~
+/backend/src/main/resources/application.properties
