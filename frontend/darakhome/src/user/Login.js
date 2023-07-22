@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
 function Login(props) {
@@ -37,7 +38,7 @@ function Login(props) {
         <div className="login">
             <div className="login-form">
                 <p>Welcome!</p>
-                <p><input className="login-input" type="text" name="username" placeholder="아이디" value={formData.id} onChange={handleChange} /></p>
+                <p><input className="login-input" type="text" name="id" placeholder="아이디" value={formData.id} onChange={handleChange} /></p>
                 <p><input className="login-input" type="password" name="pwd" placeholder="비밀번호" value={formData.pwd} onChange={handleChange} /></p>
                 <p><button className="btn" onClick={handleSubmit}>로그인</button></p>
             </div>
