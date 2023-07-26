@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <Link to="/board">Board</Link> | <Link to="/users/login">Login</Link> | <Link to="/board/write"></Link> <Link to="/users/join"></Link> <Link to="/home">Home</Link>
+        <Link to="/board">Board</Link> | <Link to="/user/login">Login</Link> | <Link to="/board/write"></Link> <Link to="/user/join"></Link> <Link to="/home">Home</Link>
       </nav>
       <Routes>
         <Route path="/board" element={<Board />} />

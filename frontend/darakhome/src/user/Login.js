@@ -24,7 +24,7 @@ function Login(props) {
       const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          const serverUrl = "http://localhost:8080/user/join";
+          const serverUrl = "http://localhost:8080/users/login";
     
           const response = await axios.post(serverUrl, formData);
     
