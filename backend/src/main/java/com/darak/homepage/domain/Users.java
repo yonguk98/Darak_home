@@ -3,7 +3,7 @@ package com.darak.homepage.domain;
 import jakarta.persistence.*;
 
 @Entity
-public class User {
+public class Users {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long identity;
     private String id; //

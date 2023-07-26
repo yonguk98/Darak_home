@@ -1,6 +1,6 @@
 package com.darak.homepage.controller;
 
-import com.darak.homepage.domain.User;
+import com.darak.homepage.domain.Users;
 import com.darak.homepage.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
 
 @Controller
 //@CrossOrigin(origins = "http://localhost:3000/user/join")
@@ -26,19 +24,19 @@ public class MemberController {
 
     @PostMapping("/users/join")
     public String create(MemberForm form){
-        User user = new User();
-        user.setId(form.getId());
-        user.setPassword(form.getPassword());
-        user.setName(form.getName());
+        Users users = new Users();
+        users.setId(form.getId());
+        users.setPassword(form.getPassword());
+        users.setName(form.getName());
 
-        memberService.join(user);
+        memberService.join(users);
 
         return "redirect:/";
     }
 
     @GetMapping("/users")
     public String list(Model model){
-        List<User> users = memberService.findMembers();
+        List<Users> users = memberService.findMembers();
         model.addAttribute("users", users);
         return "users/userList";
     }

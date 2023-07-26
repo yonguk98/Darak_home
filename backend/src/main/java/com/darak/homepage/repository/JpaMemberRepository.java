@@ -1,8 +1,7 @@
 package com.darak.homepage.repository;
 
-import com.darak.homepage.domain.User;
+import com.darak.homepage.domain.Users;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,41 +14,41 @@ public class JpaMemberRepository implements MemberRepository{
     }
 
     @Override
-    public User save(User user) {
-        em.persist(user);
-        return user;
+    public Users save(Users users) {
+        em.persist(users);
+        return users;
     }
 
     @Override
-    public Optional<User> findByIdentity(Long identity) {
-        User user = em.find(User.class, identity);
-        return Optional.ofNullable(user);
+    public Optional<Users> findByIdentity(Long identity) {
+        Users users = em.find(Users.class, identity);
+        return Optional.ofNullable(users);
     }
 
     @Override
-    public Optional<User> findById(String id) {
-        List<User> result = em.createQuery("select m from User as m where  m.id = :id", User.class)
+    public Optional<Users> findById(String id) {
+        List<Users> result = em.createQuery("select m from users as m where  m.id = :id", Users.class)
                 .setParameter("id",id).getResultList();
         return result.stream().findAny();
     }
 
     @Override
-    public Optional<User> findByPassword(String password) {
-        List<User> result = em.createQuery("select m from User as m where  m.password = :password", User.class)
+    public Optional<Users> findByPassword(String password) {
+        List<Users> result = em.createQuery("select m from users as m where  m.password = :password", Users.class)
                 .setParameter("password",password).getResultList();
         return result.stream().findAny();
     }
 
     @Override
-    public Optional<User> findByName(String name) {
-        List<User> result = em.createQuery("select m from User as m where  m.name = :name", User.class)
+    public Optional<Users> findByName(String name) {
+        List<Users> result = em.createQuery("select m from users as m where  m.name = :name", Users.class)
                 .setParameter("name",name).getResultList();
         return result.stream().findAny();
     }
 
     @Override
-    public List<User> findAll() {
-        return em.createQuery("select m from User as m", User.class)
+    public List<Users> findAll() {
+        return em.createQuery("select m from user as m", Users.class)
                 .getResultList();
     }
 }

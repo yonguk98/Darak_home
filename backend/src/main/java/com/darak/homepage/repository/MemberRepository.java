@@ -1,20 +1,20 @@
 package com.darak.homepage.repository;
 
-import com.darak.homepage.domain.User;
+import com.darak.homepage.domain.Users;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface MemberRepository {
-    User save(User user);
+    Users save(Users users);
 
-    Optional<User> findByIdentity(Long identity);
+    Optional<Users> findByIdentity(Long identity);
 
-    Optional<User> findById(String id);
+    Optional<Users> findById(String id);
 
-    Optional<User> findByPassword(String password);
+    Optional<Users> findByPassword(String password);
 
-    Optional<User> findByName(String name);
+    Optional<Users> findByName(String name);
 
-    List<User> findAll();
+    List<Users> findAll();
 }

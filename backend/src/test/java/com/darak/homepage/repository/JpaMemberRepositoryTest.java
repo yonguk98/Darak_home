@@ -1,16 +1,13 @@
 package com.darak.homepage.repository;
 
-import com.darak.homepage.domain.User;
+import com.darak.homepage.domain.Users;
 import com.darak.homepage.service.MemberService;
-import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.List;
-import java.util.Optional;
 @SpringBootTest
 @Transactional
 public class JpaMemberRepositoryTest {
@@ -20,16 +17,16 @@ public class JpaMemberRepositoryTest {
 
     @Test
     public void save(){
-        User user = new User();
+        Users users = new Users();
 //        long a = 1;
-//        user.setIdentity(a);
-        user.setId("4");
-        user.setPassword("1234");
-        user.setName("1");
+//        users.setIdentity(a);
+        users.setId("4");
+        users.setPassword("1234");
+        users.setName("1");
 
-        Long saveIdentity = memberService.join(user);
+        Long saveIdentity = memberService.join(users);
 
-        User findUser = memberService.findOne(saveIdentity).get();
-        Assertions.assertThat(user.getName()).isEqualTo(findUser.getName());
+        Users findUsers = memberService.findOne(saveIdentity).get();
+        Assertions.assertThat(users.getName()).isEqualTo(findUsers.getName());
     }
 }
