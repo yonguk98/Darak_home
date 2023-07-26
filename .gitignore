@@ -30,3 +30,5 @@ build
 /.nb-gradle/
 ~~~
 /backend/src/main/resources/application.properties
+
+/frontend/node_modules
