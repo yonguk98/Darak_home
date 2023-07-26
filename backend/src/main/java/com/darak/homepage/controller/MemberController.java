@@ -43,8 +43,7 @@ public class MemberController {
     @ResponseBody
     @PostMapping("/users/login")
     public boolean login(@RequestBody Map<String,String> param){
-        if(memberService.userCheckById(param.get("id"))
-                && memberService.userCheckByPassword(param.get("pwd"))){
+        if(memberService.login(param.get("id"),param.get("pwd"))){
             return true;
         }
         return false;

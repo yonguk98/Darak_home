@@ -43,10 +43,16 @@ public class MemberService {
 //        }
 //        return none;
 //    }
-    public boolean userCheckById(String id){
-        return memberRepository.findById(id).isPresent();
+    public boolean login(String id, String password){
+        Users userById = memberRepository.findById(id).get();
+        if (userById != null){
+            if (userById.getPassword().equals(password)){
+                return true;
+            }
+            else{return false;}
+        }
+
+        return false;
     }
-    public boolean userCheckByPassword(String password){
-        return memberRepository.findByPassword(password).isPresent();
-    }
+
 }
