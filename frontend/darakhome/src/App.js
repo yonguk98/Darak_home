@@ -1,7 +1,7 @@
 import Board from './board/Board';
-import Login from './users/Login';
+import Login from './user/Login';
 import Write from './board/Write';
-import Join from './users/Join';
+import Join from './user/Join';
 import Home from './home/Home';
 import {Routes, Route, Link} from "react-router-dom";
 import './css/Board.css';
@@ -17,9 +17,9 @@ function App() {
       </nav>
       <Routes>
         <Route path="/board" element={<Board />} />
-        <Route path="/users/login" element={<Login />} />
+        <Route path="/user/login" element={<Login />} />
         <Route path="/board/write" element={<Write />} />
-        <Route path="/users/join" element={<Join />} />
+        <Route path="/user/join" element={<Join />} />
         <Route path="/home" element={<Home />} />
       </Routes>
     </div>
