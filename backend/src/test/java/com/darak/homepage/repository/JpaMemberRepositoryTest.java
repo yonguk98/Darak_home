@@ -18,8 +18,8 @@ public class JpaMemberRepositoryTest {
     @Test
     public void save(){
         Users users = new Users();
-//        long a = 1;
-//        users.setIdentity(a);
+        long a = 1;
+        users.setIdentity(a);
         users.setId("4");
         users.setPassword("1234");
         users.setName("1");
