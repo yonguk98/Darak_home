@@ -1,5 +1,5 @@
 # Darak_home
-![header](https://capsule-render.vercel.app/api?type=soft&color=auto&height=200&section=header&text=Darak%20Community-nl-dot%20com&fontSize=60)
+![header](https://capsule-render.vercel.app/api?type=soft&color=auto&height=200&section=header&text=Darak%20Community-nl-dot%20com&fontSize=60)  
 first darakbang academic club's home page
 
 <h4>📚Platforms & Languages  
