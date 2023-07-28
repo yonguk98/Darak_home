@@ -22,12 +22,13 @@ public class MemberController {
     @GetMapping("/users/join")
     public String createForm(){return "users/createUserForm";}
 
+    @ResponseBody
     @PostMapping("/users/join")
-    public String create(MemberForm form){
+    public String create(@RequestBody Map<String,String> param){
         Users users = new Users();
-        users.setId(form.getId());
-        users.setPassword(form.getPassword());
-        users.setName(form.getName());
+        users.setId(param.get("id"));
+        users.setPassword(param.get("pwd"));
+        users.setName(param.get("name"));
 
         memberService.join(users);
 
