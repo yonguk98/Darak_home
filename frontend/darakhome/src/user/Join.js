@@ -19,7 +19,7 @@ function Join() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const serverUrl = "http://localhost:8080/user/join";
+      const serverUrl = "http://localhost:8080/users/join";
 
       const response = await axios.post(serverUrl, formData);
 
