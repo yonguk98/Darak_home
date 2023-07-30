@@ -64,14 +64,13 @@ public class MemberController {
     }
     @ResponseBody
     @GetMapping("/users/logout")
-    public boolean logout(@CookieValue Cookie reqCookie){
-        if(reqCookie.getName().equals("userId")){
-            Cookie cookie = new Cookie("userId",null);
-            cookie.setMaxAge(0);
-            response.addCookie(cookie);
-            return true;
-        }
-        return false;
+    public boolean logout(@CookieValue(name = "userId") String cookieValue){
+        if(cookieValue == null){return false;}
+
+        Cookie cookie = new Cookie("userId",null);
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        return true;
     }
     @ResponseBody
     @PostMapping ("/api")
