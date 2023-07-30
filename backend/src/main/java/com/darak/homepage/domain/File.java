@@ -5,15 +5,15 @@ import jakarta.persistence.*;
 @Entity
 public class File {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long fileId;
+    private Long fileId;
 
     @ManyToOne(targetEntity = Board.class)
     @JoinColumn(name = "articleId")
-    private long articleId;
+    private Long articleId;
 
     private String filePath;
 
-    public long getFileId() {
+    public Long getFileId() {
         return fileId;
     }
 
@@ -21,11 +21,11 @@ public class File {
         this.fileId = fileId;
     }
 
-    public long getArticleId() {
+    public Long getArticleId() {
         return articleId;
     }
 
-    public void setArticleId(int articleId) {
+    public void setArticleId(Long articleId) {
         this.articleId = articleId;
     }
 

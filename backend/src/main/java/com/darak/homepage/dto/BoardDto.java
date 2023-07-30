@@ -1,16 +1,13 @@
-package com.darak.homepage.domain;
+package com.darak.homepage.dto;
 
-import ch.qos.logback.core.model.processor.AllowAllModelFilter;
-import jakarta.persistence.*;
+import com.darak.homepage.domain.Users;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 import java.util.Date;
 
-@Entity
-public class Board {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class BoardDto {
     private Long articleId;
-    @ManyToOne(targetEntity = Users.class)
-    @JoinColumn(name = "id")
     private String writer;
     private String title;
     private Date regDate;
@@ -19,12 +16,11 @@ public class Board {
     private String content;
     private long likes;
 
-
     public Long getArticleId() {
         return articleId;
     }
 
-    public void setArticleId(long articleId) {
+    public void setArticleId(Long articleId) {
         this.articleId = articleId;
     }
 
@@ -48,16 +44,16 @@ public class Board {
         return regDate;
     }
 
-    public void setRegDate(Date regdate) {
-        this.regDate = regdate;
+    public void setRegDate(Date regDate) {
+        this.regDate = regDate;
     }
 
     public Date getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(Date updatedate) {
-        this.updateDate = updatedate;
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
     }
 
     public String getBoardCategory() {
@@ -76,11 +72,11 @@ public class Board {
         this.content = content;
     }
 
-    public long getLike() {
+    public long getLikes() {
         return likes;
     }
 
-    public void setLike(long like) {
-        this.likes = like;
+    public void setLikes(long likes) {
+        this.likes = likes;
     }
 }

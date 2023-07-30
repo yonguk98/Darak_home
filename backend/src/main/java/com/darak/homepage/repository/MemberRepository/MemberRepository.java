@@ -1,14 +1,14 @@
-package com.darak.homepage.repository;
+package com.darak.homepage.repository.MemberRepository;
 
 import com.darak.homepage.domain.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-public interface SpringDataJpaMemberRepository extends JpaRepository<Users,Long>, MemberRepository {
-    @Override
+public interface MemberRepository extends JpaRepository<Users,Long> {
+    Optional<Users> findById(String id);
     Optional<Users> findByName(String name);
 
-    @Override
     Optional<Users> findByIdentity(Long identity);
 }

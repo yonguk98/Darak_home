@@ -7,7 +7,7 @@ import java.util.Date;
 @Entity
 public class Comment {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idx;
+    private Long idx;
     @ManyToOne(targetEntity = Board.class)
     @JoinColumn(name = "articleId") // comment table의 입장에서 articleId 한 개와 여러관계를 맺을수 있음
     private long articleId;
@@ -17,7 +17,7 @@ public class Comment {
     @JoinColumn(name="id")
     private String writer;
 
-    public long getArticleId() {
+    public Long getArticleId() {
         return articleId;
     }
 
@@ -29,7 +29,7 @@ public class Comment {
         return idx;
     }
 
-    public void setIdx(int idx) {
+    public void setIdx(Long idx) {
         this.idx = idx;
     }
 

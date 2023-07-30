@@ -24,7 +24,8 @@ public class MemberController {
     private final HttpServletRequest request;
 
     @Autowired
-    public MemberController(MemberService memberService, HttpServletResponse response, HttpServletRequest request){this.memberService = memberService;
+    public MemberController(MemberService memberService, HttpServletResponse response, HttpServletRequest request){
+        this.memberService = memberService;
         this.response = response;
         this.request = request;
     }
@@ -57,6 +58,7 @@ public class MemberController {
         if(memberService.login(param.get("id"),param.get("pwd"))){
             Cookie cookie = new Cookie("userId",param.get("id"));
             cookie.setMaxAge(60*60); // 1 hour
+            cookie.setPath("/");
             response.addCookie(cookie);
             return true;
         }

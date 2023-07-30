@@ -1,6 +1,7 @@
 package com.darak.homepage.repository;
 
 import com.darak.homepage.domain.Users;
+import com.darak.homepage.repository.MemberRepository.MemberRepository;
 import com.darak.homepage.service.MemberService;
 import jakarta.transaction.Transactional;
 import org.assertj.core.api.Assertions;
@@ -13,7 +14,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class JpaMemberRepositoryTest {
 
     @Autowired MemberService memberService;
-    @Autowired MemberRepository memberRepository;
+    @Autowired
+    MemberRepository memberRepository;
 
     @Test
     public void save(){

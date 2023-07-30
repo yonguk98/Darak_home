@@ -1,6 +1,6 @@
 package com.darak.homepage.service;
 
-import com.darak.homepage.repository.MemberRepository;
+import com.darak.homepage.repository.MemberRepository.MemberRepository;
 import jakarta.transaction.Transactional;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -12,7 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class memberServiceTest {
 
     @Autowired MemberService memberService;
-    @Autowired MemberRepository memberRepository;
+    @Autowired
+    MemberRepository memberRepository;
 
     @Test
     public void login(){
