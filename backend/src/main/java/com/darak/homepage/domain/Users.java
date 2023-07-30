@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class Users {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long identity;
+    private long identity;
     private String id; //
     private String password;
     private String name; // 사용자 이름
