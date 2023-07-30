@@ -2,22 +2,32 @@ package com.darak.homepage.controller;
 
 import com.darak.homepage.domain.Users;
 import com.darak.homepage.service.MemberService;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @Controller
 //@CrossOrigin(origins = "http://localhost:3000/user/join")
 public class MemberController {
 
     private final MemberService memberService;
+    private final HttpServletResponse response;
+    private final HttpServletRequest request;
 
     @Autowired
-    public MemberController(MemberService memberService){this.memberService = memberService;}
+    public MemberController(MemberService memberService, HttpServletResponse response, HttpServletRequest request){this.memberService = memberService;
+        this.response = response;
+        this.request = request;
+    }
 
     @GetMapping("/users/join")
     public String createForm(){return "users/createUserForm";}
@@ -45,6 +55,20 @@ public class MemberController {
     @PostMapping("/users/login")
     public boolean login(@RequestBody Map<String,String> param){
         if(memberService.login(param.get("id"),param.get("pwd"))){
+            Cookie cookie = new Cookie("userId",param.get("id"));
+            cookie.setMaxAge(60*60); // 1 hour
+            response.addCookie(cookie);
+            return true;
+        }
+        return false;
+    }
+    @ResponseBody
+    @GetMapping("/users/logout")
+    public boolean logout(@CookieValue Cookie reqCookie){
+        if(reqCookie.getName().equals("userId")){
+            Cookie cookie = new Cookie("userId",null);
+            cookie.setMaxAge(0);
+            response.addCookie(cookie);
             return true;
         }
         return false;
